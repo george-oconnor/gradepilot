@@ -13,9 +13,15 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "buildNumber": "4",
+      "bundleIdentifier": "com.george.oconnor.examcalculator",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
+      "versionCode": 4,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -25,6 +31,22 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "@sentry/react-native/expo",
+        {
+          "url": "https://sentry.io/",
+          "project": "exam-calculator",
+          "organization": "georgeoccom"
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "b4c96efe-2456-487d-8fe5-c791733e62a1"
+      }
+    },
+    "owner": "george.oconnor"
   }
 }
