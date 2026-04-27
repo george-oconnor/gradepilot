@@ -33,20 +33,7 @@
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      [
-        "@sentry/react-native/expo",
-        {
-          "url": "https://sentry.io/",
-          "project": "exam-calculator",
-          "organization": "georgeoccom"
-        }
-      ]
-    ],
-    "extra": {
-      "eas": {
-        "projectId": "b4c96efe-2456-487d-8fe5-c791733e62a1"
-      }
-    },
-    "owner": "george.oconnor"
+      "@sentry/react-native/expo"
+    ]
   }
 }

@@ -21,11 +21,15 @@ import * as Sentry from '@sentry/react-native';
 
 const SIDEBAR_WIDTH = Math.min(300, Math.round(Dimensions.get('window').width * 0.8));
 
-Sentry.init({
-  dsn: 'https://87017698d4b272551e11269caf09c743@o4509054949195776.ingest.de.sentry.io/4511145260154960',
-  tracesSampleRate: 1.0,
-  debug: __DEV__,
-});
+const sentryDsn = process.env.EXPO_PUBLIC_SENTRY_DSN;
+
+if (sentryDsn) {
+  Sentry.init({
+    dsn: sentryDsn,
+    tracesSampleRate: 1.0,
+    debug: __DEV__,
+  });
+}
 
 interface GradeRow {
   id: string;

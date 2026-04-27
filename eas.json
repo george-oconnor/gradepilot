@@ -17,14 +17,5 @@
         "SENTRY_DISABLE_AUTO_UPLOAD": "true"
       }
     }
-  },
-  "submit": {
-    "production": {
-      "ios": {
-        "appleId": "oconnog9@tcd.ie",
-        "appleTeamId": "R24JGBG8AK",
-        "ascAppId": "6761485102"
-      }
-    }
   }
 }
