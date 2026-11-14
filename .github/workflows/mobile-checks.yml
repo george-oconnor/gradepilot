@@ -1,0 +1,24 @@
+name: Mobile checks
+
+# Type-check the app on every PR, and before every OTA update or build.
+on:
+  pull_request:
+    paths-ignore: ["docs/**", "**/*.md"]
+  workflow_call:   # reused by "Mobile OTA update" and "Mobile build iOS"
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Type-check
+        run: npx tsc --noEmit
+      - name: Profiles used for OTA promotion share the same public settings
+        run: node scripts/ci/eas-profile-env.mjs internal --same-public-env-as production testflight

@@ -18,6 +18,7 @@ import {
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Sentry from '@sentry/react-native';
+import { formatAppVersion } from './appVersion';
 
 const SIDEBAR_WIDTH = Math.min(300, Math.round(Dimensions.get('window').width * 0.8));
 
@@ -496,6 +497,7 @@ function App() {
                     })
                 )}
               </ScrollView>
+              <Text style={styles.versionText}>{formatAppVersion()}</Text>
             </SafeAreaView>
           </Animated.View>
         </View>
@@ -711,6 +713,15 @@ const styles = StyleSheet.create({
   sidebarList: {
     padding: 12,
     paddingBottom: 24,
+  },
+  versionText: {
+    color: '#666',
+    fontSize: 11,
+    textAlign: 'center',
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    borderTopWidth: 1,
+    borderTopColor: '#3a3a5c',
   },
   savedRowActive: {
     borderWidth: 1,
