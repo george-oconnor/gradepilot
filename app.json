@@ -40,6 +40,12 @@
         "projectId": "b4c96efe-2456-487d-8fe5-c791733e62a1"
       }
     },
-    "owner": "george.oconnor"
+    "owner": "george.oconnor",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/b4c96efe-2456-487d-8fe5-c791733e62a1"
+    }
   }
 }

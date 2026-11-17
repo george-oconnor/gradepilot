@@ -4,22 +4,47 @@
     "appVersionSource": "remote"
   },
   "build": {
-    "development": {
-      "developmentClient": true,
-      "distribution": "internal"
-    },
-    "preview": {
-      "distribution": "internal"
-    },
-    "production": {
-      "autoIncrement": true,
+    "_base": {
+      "node": "22.23.4",
+      "environment": "production",
       "env": {
         "SENTRY_DISABLE_AUTO_UPLOAD": "true"
       }
+    },
+    "development": {
+      "extends": "_base",
+      "developmentClient": true,
+      "distribution": "internal",
+      "channel": "development"
+    },
+    "preview": {
+      "extends": "_base",
+      "distribution": "internal",
+      "channel": "preview"
+    },
+    "internal": {
+      "extends": "_base",
+      "distribution": "internal",
+      "channel": "internal"
+    },
+    "production": {
+      "extends": "_base",
+      "channel": "production",
+      "autoIncrement": true
+    },
+    "testflight": {
+      "extends": "_base",
+      "channel": "testflight",
+      "autoIncrement": true
     }
   },
   "submit": {
     "production": {
+      "ios": {
+        "ascAppId": "6761485102"
+      }
+    },
+    "testflight": {
       "ios": {
         "ascAppId": "6761485102"
       }
